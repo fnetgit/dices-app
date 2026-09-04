@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- corpo do dado: fundo preto -->
+  <rect x="0" y="0" width="512" height="512" rx="70" ry="70" fill="#000000"/>
+  <!-- face do dado: quadrado branco interno -->
+  <rect x="56" y="56" width="400" height="400" rx="34" ry="34" fill="#ffffff"/>
+  <!-- pino(s) -->
+  <circle cx="156.0" cy="156.0" r="38" fill="#000000"/>
+  <circle cx="356.0" cy="156.0" r="38" fill="#000000"/>
+  <circle cx="156.0" cy="356.0" r="38" fill="#000000"/>
+  <circle cx="356.0" cy="356.0" r="38" fill="#000000"/>
+</svg>
