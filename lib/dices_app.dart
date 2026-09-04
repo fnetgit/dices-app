@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+
+class DicesApp extends StatelessWidget {
+  const DicesApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Dices app',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
+      ),
+      home: const Scaffold(backgroundColor: Colors.yellow),
+    );
+  }
+}
