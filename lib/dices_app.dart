@@ -1,3 +1,4 @@
+import 'package:dices/dice_page.dart';
 import 'package:flutter/material.dart';
 
 class DicesApp extends StatelessWidget {
@@ -11,7 +12,8 @@ class DicesApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
       ),
-      home: const Scaffold(backgroundColor: Colors.yellow),
+      home: const DicePage(),
     );
   }
 }
+
