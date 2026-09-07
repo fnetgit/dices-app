@@ -11,11 +11,14 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.yellow,
       body: Center(
-        child: Row(
-          children: [DiceButton(diceNumber: 1), DiceButton(diceNumber: 2)],
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 500),
+          child: Row(
+            children: [DiceButton(diceNumber: 1), DiceButton(diceNumber: 2)],
+          ),
         ),
       ),
     );
