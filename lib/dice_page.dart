@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'dart:math';
+
 class DicePage extends StatefulWidget {
   const DicePage({super.key});
 
@@ -9,6 +11,21 @@ class DicePage extends StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = Random().nextInt(6) + 1;
+  int rightDiceNumber = Random().nextInt(6) + 1;
+
+  void rollLeftDice() {
+    setState(() {
+      leftDiceNumber = Random().nextInt(6) + 1;
+    });
+  }
+
+  void rollRightDice() {
+    setState(() {
+      rightDiceNumber = Random().nextInt(6) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +34,10 @@ class _DicePageState extends State<DicePage> {
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: 500),
           child: Row(
-            children: [DiceButton(diceNumber: 1), DiceButton(diceNumber: 2)],
+            children: [
+              DiceButton(diceNumber: leftDiceNumber, onTap: rollLeftDice),
+              DiceButton(diceNumber: rightDiceNumber, onTap: rollRightDice),
+            ],
           ),
         ),
       ),
@@ -27,15 +47,18 @@ class _DicePageState extends State<DicePage> {
 
 class DiceButton extends StatelessWidget {
   final int diceNumber;
-
-  const DiceButton({super.key, required this.diceNumber});
+  final VoidCallback onTap;
+  const DiceButton({super.key, required this.diceNumber, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SvgPicture.asset('assets/images/dice$diceNumber.svg'),
+        child: InkWell(
+          onTap: onTap,
+          child: SvgPicture.asset('assets/images/dice$diceNumber.svg'),
+        ),
       ),
     );
   }
