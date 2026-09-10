@@ -10,19 +10,29 @@ class DicePage extends StatefulWidget {
   State<DicePage> createState() => _DicePageState();
 }
 
+final _random = Random();
+int _getRandomDice() => _random.nextInt(6) + 1;
+
 class _DicePageState extends State<DicePage> {
-  int leftDiceNumber = Random().nextInt(6) + 1;
-  int rightDiceNumber = Random().nextInt(6) + 1;
+  int leftDiceNumber = _getRandomDice();
+  int rightDiceNumber = _getRandomDice();
 
   void rollLeftDice() {
     setState(() {
-      leftDiceNumber = Random().nextInt(6) + 1;
+      leftDiceNumber = _getRandomDice();
     });
   }
 
   void rollRightDice() {
     setState(() {
-      rightDiceNumber = Random().nextInt(6) + 1;
+      rightDiceNumber = _getRandomDice();
+    });
+  }
+
+  void rollBoth() {
+    setState(() {
+      leftDiceNumber = _getRandomDice();
+      rightDiceNumber = _getRandomDice();
     });
   }
 
